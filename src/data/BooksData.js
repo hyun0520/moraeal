@@ -14,7 +14,7 @@ const booksData = [
     spec: "544쪽 | 1,110g | 153*224*35mm",
     isbn: "9791196824440",
     price: "20,700원",
-    image: "/src/assets/book1.jpg",
+    image: book1,
 
     // ✅ 탭 데이터
     highlight: "방글라데시를 자유의 나라로 만든 국부(國父) 셰이크 무지부르 라흐만\n그가 남긴 위대한 지도자의 이야기",
@@ -37,26 +37,27 @@ const booksData = [
     id: 2,
     title: "Aging in Grace : 은혜로운 노년",
     author: "아치볼드 알렉산더",
-    image: "/src/assets/book2.jpg"
+        image: book2,
   },
   {
     id: 3,
     title: "하나님의 임재 연습",
     author: "로렌스 형제",
-    image: "/src/assets/book3.jpg"
+    image: book3,
   },
   {
     id: 4,
     title: "하나님의 임재 연습",
     author: "로렌스 형제",
-    image: "/src/assets/book4.jpg"
+    image: book4,
   },
   {
     id: 5,
     title: "하나님의 임재 연습",
     author: "로렌스 형제",
-    image: "/src/assets/book5.jpg"
+    image: book5,
   },
+  
   
 ];
 
