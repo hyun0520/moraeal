@@ -1,0 +1,1207 @@
+/* ================================
+   Import Fancy Fonts
+================================ */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;600&display=swap");
+
+/* Pretendard */
+@font-face {
+  font-family: "Pretendard";
+  src: url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-Regular.woff2") format("woff2"),
+       url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/woff2/Pretendard-Bold.woff2") format("woff2");
+}
+
+/* ================================
+   Root Variables — Modern Palette
+================================ */
+:root {
+  --bg-main: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-footer: #1d1d1d;
+
+  --text-main: #222222;
+  --text-muted: #6f6f6f;
+
+  --accent: #bd8f08;
+  --accent-soft: #ece9ff;
+
+  --radius-lg: 18px;
+  --radius-sm: 10px;
+
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 18px 50px rgba(0, 0, 0, 0.14);
+
+  --max-width: 1200px;
+
+  --fs-small: clamp(12px, 1.4vw, 14px);
+  --fs-base: clamp(15px, 1.6vw, 18px);
+  --fs-medium: clamp(20px, 2.5vw, 32px);
+  --fs-large: clamp(32px, 5vw, 56px);
+}
+
+/* ================================
+   Global
+================================ */
+body {
+  margin: 0;
+  background: var(--bg-main);
+  font-family: "Pretendard", "Inter", sans-serif;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.publisher-page {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Container (중앙 정렬) */
+.publisher-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================================
+   Announcement Bar — FIXED
+================================ */
+.publisher-announcement {
+  width: 100%;
+  background: #bd8f08;
+  border-bottom: 1px solid #dedede;
+  font-size: var(--fs-small);
+  display: flex;
+  justify-content: center;
+}
+
+.publisher-announcement-inner {
+  max-width: 1200px;
+  width: 100%;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+/* ================================
+   Header — SHRINK ON SCROLL
+================================ */
+
+/* 헤더 전체 영역 */
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+
+  transition: 
+    padding 0.28s ease,
+    height 0.28s ease,
+    box-shadow 0.28s ease,
+    border-bottom 0.28s ease;
+}
+
+/* 처음(스크롤 전) — 큰 헤더 */
+.header-large .header-inner {
+  padding: 22px 24px;     /* 넉넉한 패딩 */
+}
+
+.header-large .header-logo-img {
+  height: 85px;
+}
+
+/* 스크롤 후 — 작은 헤더 */
+.header-small {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.header-small .header-inner {
+  padding: 10px 24px;      /* 패딩 축소 */
+}
+
+.header-small .header-logo-img {
+  height: 55px;            /* 로고 축소 */
+}
+
+/* 헤더 내부 정렬 */
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* 애니메이션 부드럽게 */
+  transition: padding 0.28s ease;
+}
+
+/* 로고 이미지 */
+.header-logo-img {
+  width: auto;
+  object-fit: contain;
+  transition: height 0.28s ease;
+}
+
+/* 네비게이션 */
+.header-nav {
+  display: flex;
+  gap: 32px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  color: #222;
+  transition: 0.2s ease;
+}
+
+.header-nav a:hover {
+  color: #bd8f08;
+}
+
+/* 모바일 — 로고 축소 */
+@media (max-width: 600px) {
+  .header-large .header-logo-img {
+    height: 48px;
+  }
+
+  .header-small .header-logo-img {
+    height: 32px;
+  }
+}
+
+/* Announcement Bar 때문에 가림 방지 → 헤더 아래 여백 확보 */
+body {
+  padding-top: 30px; /* announcement bar height */
+}
+
+
+/* ================================
+   Hero Section
+================================ */
+.publisher-hero {
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+  gap: 48px;
+  align-items: center;
+}
+
+.publisher-tagline {
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: var(--fs-small);
+}
+
+.publisher-hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: var(--fs-large);
+  line-height: 1.15;
+  margin: 16px 0;
+}
+
+.publisher-primary-btn {
+  background: var(--accent);
+  padding: 14px 36px;
+  border-radius: 30px;
+  border: none;
+  color: white;
+  font-size: var(--fs-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+  margin-top: 18px;
+  box-shadow: var(--shadow-soft);
+}
+
+.publisher-primary-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-strong);
+}
+
+.publisher-hero-image img {
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+/* ================================
+   Section Header
+================================ */
+.publisher-section-header h2 {
+  font-size: var(--fs-medium);
+  margin-bottom: 16px;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 600;
+}
+
+/* ================================
+   What We Do
+================================ */
+.publisher-what-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 40px;
+}
+
+.publisher-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  padding: 26px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+}
+
+.publisher-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ================================
+   Books List Section
+================================ */
+.books-section {
+  padding: 120px 8% 160px;
+  background: #fff;
+}
+
+.new-title {
+  font-size: 44px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  color: #bd8f08;
+  margin-bottom: 60px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 50px;
+  align-items: flex-start;
+}
+
+.book-card {
+  text-decoration: none;
+  color: #111;
+  text-align: center;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-8px);
+}
+
+.book-image {
+  width: 115%;
+  height: 340px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f3f3f3;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.12);
+  margin-bottom: 14px;
+}
+
+.book-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-info h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.book-info p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.book-info span {
+  font-size: 14px;
+  font-weight: 600;
+  color: #222;
+}
+
+/* ✅ 반응형 */
+@media (max-width: 1200px) {
+  .books-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================================
+   Full Screen Popup
+================================ */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-page {
+  width: 850px;
+  background: #fff;
+  padding: 70px 90px 90px;
+  position: relative;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  max-height: 72vh;
+  overflow-y: auto;
+  animation: popupScale 0.25s ease;
+}
+
+@keyframes popupScale {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.popup-close {
+  position: absolute;
+  top: 28px;
+  right: 28px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+/*팝업 상세페이지 밑 글 폰트*/
+.detail-content {
+  margin-top: 50px;
+  font-family: "Noto Serif KR", serif;
+  font-size: 17px;
+  line-height: 2;
+  color: #222;
+  letter-spacing: -0.01em;
+}
+.detail-content .highlight {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1b2a4e;
+  margin-bottom: 32px;
+  line-height: 2;
+}
+.detail-content pre {
+  font-family: "Noto Serif KR", serif;
+  font-size: 16px;
+  line-height: 2;
+  white-space: pre-line;
+}
+.detail-content p {
+  margin-bottom: 26px;
+  word-break: keep-all;
+}
+@media (max-width: 900px) {
+  .detail-content {
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .detail-content .highlight {
+    font-size: 17px;
+  }
+}
+/* ================================
+   📱 MOBILE OPTIMIZATION (최종)
+================================ */
+@media (max-width: 900px) {
+
+  /* ✅ 팝업 전체 크기 */
+  .popup-page {
+    width: 94%;
+    padding: 28px 18px 40px;
+    max-height: 90vh;
+  }
+
+  /* ✅ 상단 레이아웃 세로 정렬 */
+  .detail-top {
+    flex-direction: column;
+    gap: 26px;
+    align-items: center;
+  }
+
+  /* ✅ 책 이미지 */
+  .detail-image img {
+    width: 220px;
+  }
+
+  /* ✅ 상세 정보 */
+  .detail-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .detail-title {
+    font-size: 20px;
+    margin-bottom: 22px;
+  }
+
+  /* ✅ 정보 테이블 */
+  .detail-table .row {
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  .detail-table .label {
+    width: 80px;
+    font-size: 13px;
+  }
+
+  .detail-table span {
+    font-size: 14px;
+  }
+
+  /* ✅ 구매 버튼 */
+  .detail-buy {
+    width: 100%;
+    padding: 14px 0;
+    font-size: 15px;
+    margin-top: 26px;
+  }
+
+  /* ✅ 탭 영역 */
+  .detail-tabs {
+    margin-top: 50px;
+    border-radius: 30px;
+  }
+
+  .detail-tabs button {
+    padding: 12px 0;
+    font-size: 14px;
+  }
+
+  .detail-tabs button.active {
+    border-radius: 26px;
+  }
+
+  /* ✅ 탭 내용 */
+  .detail-content {
+    margin-top: 30px;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+
+  .detail-content .highlight {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .detail-content p {
+    margin-bottom: 20px;
+  }
+
+  /* ✅ 닫기 버튼 */
+  .popup-close {
+    top: 14px;
+    right: 14px;
+    font-size: 22px;
+  }
+}
+
+/* ================================
+   Detail Top Layout
+================================ */
+.detail-top {
+  display: flex;
+  gap: 80px;
+}
+
+.detail-image img {
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 14px 40px rgba(0,0,0,0.15);
+}
+
+.detail-info {
+  flex: 1;
+  padding-left: 120px; /* ✅ 오른쪽으로 더 이동 */
+}
+
+.detail-title {
+  font-size: 22px;   /* ✅ 크기 줄임 */
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.detail-table .row {
+  position: relative;
+  display: flex;
+  padding: 15px 0;
+}
+
+/* ✅ 실제로 보이는 짧은 밑줄 */
+.detail-table .row::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60%;            /* ✅ 여기서 줄 길이 조절 */
+  height: 1px;
+  background: #eee;
+}
+
+.detail-table .label {
+  width: 110px;
+  font-weight: 700;
+  font-size: 14.5px;
+  color: #1b2a4e;
+}
+
+.detail-table .value {
+  font-size: 14.5px;
+  color: #222;
+}
+
+.detail-table .price {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* ================================
+   Buy Button
+================================ */
+.detail-buy {
+  margin-top: 42px;
+  padding: 14px 60px;
+  background: #8c430f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  transition: 0.25s;
+}
+
+.detail-buy:hover {
+  background: #8c430f;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+
+  /* 제목 왼쪽 */
+  .detail-info {
+    text-align: left !important;
+  }
+
+  .detail-title {
+    text-align: left !important;
+    font-size: 19px !important;
+    margin-bottom: 18px !important;
+  }
+
+  /* 구매 버튼 왼쪽 + 작게 */
+  .detail-buy {
+    width: auto !important;
+    padding: 10px 28px !important;
+    font-size: 20px !important;
+    border-radius: 26px !important;
+    margin: 18px 0 0 0 !important;
+    display: inline-block !important;
+  }
+}
+
+/* ================================
+   ✅ DETAIL TABS — FINAL DESIGN (예시 스타일)
+================================ */
+.detail-tabs {
+  margin: 90px auto 0;
+  width: 100%;
+  max-width: 760px;
+  background: linear-gradient(90deg, #8c430f, #8c430f);
+  border-radius: 999px;
+  display: flex;
+  padding: 6px;
+  box-shadow: 0 14px 36px rgba(0,0,0,0.2);
+}
+
+/* 기본 버튼 */
+.detail-tabs button {
+  flex: 1;
+  border: none;
+  background: transparent;
+  color: #cfd6ea;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 14px 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+/* ✅ 활성화된 버튼 (예시처럼 흰 알 버튼) */
+.detail-tabs button.active {
+  background: #ffffff;
+  color: black;
+  font-weight: 700;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
+
+
+
+
+/* ================================
+   Detail Content
+================================ */
+.detail-content {
+  margin-top: 40px;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* ✅ 공통 하이라이트 */
+.detail-content .highlight {
+  font-family: "Noto Serif KR", serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #8c410d;   /* 빨강 대신 브라운 톤 */
+  margin-bottom: 28px;
+  line-height: 1.9;
+  text-align: center;
+}
+
+/* ✅ 저자 소개 전용 하이라이트 (약간 더 단정하게) */
+.detail-content .author-highlight {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4a3a2a;
+  margin-bottom: 24px;
+}
+
+
+
+
+
+
+/* ================================
+   Photo Block
+================================ */
+.publisher-photo-block {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+  gap: 30px;
+  align-items: center;
+}
+
+.publisher-photo-block img {
+  border-radius: 22px;
+  box-shadow: var(--shadow-strong);
+}
+
+
+/* ============================
+   NEWS — Image Card Style
+============================ */
+.news-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  margin-top: 30px;
+}
+
+.news-card {
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: 0.25s ease;
+  cursor: pointer;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-strong);
+}
+
+.news-card-img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.news-card-caption {
+  padding: 16px 18px;
+  font-size: 15px;
+  color: #444;
+}
+
+.news-section {
+  margin-bottom: 120px; /* footer와 떨어뜨림 */
+}
+
+/* ============================================
+   CONTACT PAGE — CLEAN & MODERN FINAL VERSION
+============================================ */
+
+/* Contact Page Layout Wrapper */
+.contact-wrapper {
+  max-width: 900px;
+  margin: 140px auto 140px auto; /* Header/Footer 간격 */
+  padding: 0 20px;
+}
+
+/* Contact Info Card (제목 포함) */
+.contact-card {
+  background: white;
+  padding: 40px;
+  border-radius: 18px;
+  box-shadow: 0 12px 38px rgba(0,0,0,0.08);
+  margin-bottom: 50px;
+  text-align: center; /* 제목 중앙 정렬 */
+}
+
+/* Contact Title */
+.contact-card h2 {
+  font-size: 34px;
+  margin-bottom: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Each line (주소 / 전화 / 이메일) */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 0 auto 26px auto;
+  max-width: 450px;       /* 너무 넓지 않게 */
+  text-align: left;       /* 텍스트는 좌측 정렬 */
+}
+
+/* 아이콘 스타일 */
+.contact-icon {
+  font-size: 28px;
+  color: #bd8f08;
+  min-width: 32px;
+}
+
+/* 항목 소제목 */
+.contact-item h4 {
+  font-size: 20px;
+  margin: 0 0 4px 0;
+  font-weight: 600;
+}
+
+/* 항목 내용 텍스트 */
+.contact-item p {
+  font-size: 19px;
+  margin: 0;
+  color: #333;
+}
+
+/* Kakao Map container card */
+.map-card {
+  background: white;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+  margin-top: 40px;
+  margin-bottom: 120px; /* Footer와 충분한 간격 확보 */
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 500px;
+  border-radius: 14px;
+  border: none;
+}
+
+
+/* ================================
+   Footer
+================================ */
+.publisher-footer {
+  background: var(--bg-footer);
+  color: white;
+  padding: 50px 0 30px 0;
+}
+
+.publisher-footer-links a {
+  color: #d9d9d9;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.publisher-footer-links a:hover {
+  color: white;
+}
+
+/* ================================
+   Responsive
+================================ */
+@media (max-width: 480px) {
+  .publisher-primary-btn {
+    width: 100%;
+  }
+}
+
+/* ================================
+   Spacing Tweaks
+================================ */
+.publisher-card,
+.publisher-detail-block,
+.publisher-news-item,
+.publisher-contact-card {
+  margin-bottom: 40px;
+}
+
+.publisher-photo-block {
+  margin-bottom: 60px;
+}
+
+/* ================================
+   ABOUT — Hero Section
+================================ */
+.about-hero {
+  width: 100%;
+  height: 85vh;
+  background-image: url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2000");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.about-hero-text {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.about-hero-text h1 {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.about-hero-text p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+
+/* ================================
+   ABOUT — Content Section
+================================ */
+.about-content {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.about-content h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.about-content p {
+  font-size: 17px;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+
+/* ================================
+   ABOUT — History Section
+================================ */
+.about-history {
+  margin-top: 60px;
+}
+
+.about-history h3 {
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+.about-history ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-history li {
+  margin-bottom: 14px;
+  padding-left: 10px;
+  border-left: 4px solid #8c410d;
+}
+
+.about-history .year {
+  font-weight: bold;
+  display: inline-block;
+  width: 90px;
+  color: #8c410d;
+}
+
+/* ============================
+   MOBILE RESPONSIVE TWEAKS
+============================ */
+
+/* 전체 패딩 조정 */
+@media (max-width: 600px) {
+  .publisher-container {
+    padding: 0 16px;
+  }
+
+  /* 헤더 메뉴 크기 줄임 */
+  .header-nav a {
+    font-size: 14px;
+    gap: 20px;
+  }
+
+  /* 히어로 이미지 + 텍스트 세로 정렬 */
+  .publisher-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .publisher-hero-image img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* News section spacing */
+  .news-section {
+    margin-bottom: 80px !important;
+  }
+
+  .publisher-section-header h2 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .publisher-section-header p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* 뉴스 카드 한 줄 1개씩 */
+  .news-card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .news-card-img {
+    height: 180px !important;
+  }
+
+  /* Contact Page 최적화 */
+  .contact-page-card,
+  .contact-card {
+    margin: 20px auto;
+    padding: 24px;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-item span {
+    font-size: 15px;
+  }
+
+  /* 지도 */
+  .map-card iframe {
+    height: 300px !important;
+  }
+
+  /* ABOUT 페이지 반응형 */
+  .about-hero {
+    height: 260px !important;
+  }
+
+  .about-hero-text h1 {
+    font-size: 26px !important;
+  }
+
+  .about-content {
+    padding: 0 20px;
+  }
+}
+
+.publisher-card {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+/* 모바일 헤더 최적화 */
+@media (max-width: 480px) {
+  .header-inner {
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    padding: 0 10px;
+    
+  }
+
+  .header-nav {
+    gap: 10px; /* 메뉴 간격 줄이기 */
+  }
+
+  .header-nav a {
+    font-size: 14px; /* 글자 크기 줄이기 */
+    margin-left: 16px;
+  }
+}
+/* 전체 컨테이너 모바일 최적화 */
+.publisher-container {
+  width: 80%;
+  max-width: 90%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+/* 카드 박스 모바일에서 화면 안에 들어오게 */
+@media (max-width: 480px) {
+  .publisher-container,
+  .card-box, 
+  .details-card, 
+  .whatwedo-card {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+}
+
+
+
+/* ✅ BookList 전체 레이아웃 */
+.booklist-wrap {
+  padding: 80px 0;
+  background: #fff;
+  width: 100%;
+}
+
+.booklist-container {
+  max-width: 1200px;     /* ✅ 1번 샘플 같은 중앙 폭 */
+  margin: 0 auto;       /* ✅ 중앙 정렬 */
+  padding: 0 40px;      /* ✅ 좌우 여백 */
+}
+
+/* ✅ 타이틀 */
+.section-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 50px;
+  position: relative;
+  border-bottom: 1px solid #e5e5e5;
+  padding-bottom: 12px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 120px;
+  height: 3px;
+  background: #bd8f08;
+}
+
+/* 책 그리드 */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 60px 40px;   /* ✅ 좌우/상하 간격 여유 */
+  justify-items: center;
+}
+
+/* 카드 */
+.book-card {
+  width: 100%;
+  /* 책 크기 제한 */
+  max-width: 240px;  
+  text-align: center;
+}
+
+.book-card img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.book-card img:hover {
+  transform: translateY(-6px);
+}
+
+.book-card h4 {
+  font-size: 15px;
+  margin-top: 14px;
+}
+
+.book-card p {
+  font-size: 13px;
+  color: #777;
+}
+
+/* ✅ 사이트 전체 공통 기준선 */
+.site-container {
+  max-width: 1280px;   /* 1번 예시와 같은 폭 */
+  margin: 0 auto;
+  padding: 0 40px;     /* 좌우 여백 */
+}
+
+/* ✅ 모바일 반응형 */
+@media (max-width: 1024px) {
+  .book-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .booklist-container {
+    padding: 0 20px;
+  }
+
+  .book-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
