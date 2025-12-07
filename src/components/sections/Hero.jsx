@@ -5,13 +5,13 @@ export default function Hero() {
         <div className="publisher-hero">
           
           <div className="publisher-hero-text">
-            <p className="publisher-tagline">Inclusive After-School Club</p>
-            <h1>Ready to find your voice?</h1>
+            <p className="publisher-tagline">작은 이야기의 힘, 모래알 출판사</p>
+            <h1>당신의 이야기를 찾고 계신가요?</h1>
             <p className="publisher-hero-body">
-              We welcome all students who are curious about speech, debate,
-              and building confidence in a supportive team environment.
+              모래알 출판사는 작지만 깊이 있는 이야기, 새로운 시선과 목소리를 담은 책들을 독자 여러분께 전합니다.
+              
             </p>
-            <button className="publisher-primary-btn">Join us</button>
+            <button className="publisher-primary-btn">출판사 소개</button>
           </div>
 
           <div className="publisher-hero-image">

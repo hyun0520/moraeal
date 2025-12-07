@@ -5,30 +5,29 @@ export default function WhatWeDo() {
         <div className="publisher-section-header">
           <h2>What We Do</h2>
           <p>
-            Our after-school program focuses on building skills in public
-            speaking, performance, and critical thinking.
+            모래알 출판사는 독립 출판, 번역 출판, 기획 출판을 통해 다양한 주제의 책을 제작합니다.
           </p>
         </div>
 
         <div className="publisher-what-grid">
           <div className="publisher-card">
-            <h3>Speech events</h3>
+            <h3>출판 분야</h3>
             <ul>
-              <li>Original Oratory (OO)</li>
-              <li>Informative Speaking (INF)</li>
-              <li>Duo Interpretation (DUO)</li>
-              <li>Poetry (POE)</li>
-              <li>Humorous Interpretation (HI)</li>
+              <li>에세이</li>
+              <li>소설</li>
+              <li>시집</li>
+              <li>인문·사회 도서</li>
+              <li>번역 도서</li>
             </ul>
           </div>
 
           <div className="publisher-card">
-            <h3>Debate events</h3>
+            <h3>출판 활동</h3>
             <ul>
-              <li>Extemporaneous Debate (XDB)</li>
-              <li>Lincoln-Douglas Debate (LD)</li>
-              <li>Practice rounds & feedback</li>
-              <li>Tournament prep sessions</li>
+              <li>신간 기획 및 편집</li>
+              <li>원고 공모</li>
+              <li>번역 프로젝트</li>
+              <li>온·오프라인 서점 유통</li>
             </ul>
           </div>
         </div>

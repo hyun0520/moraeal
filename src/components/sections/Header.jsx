@@ -28,14 +28,15 @@ export default function Header() {
 
         <nav className="header-nav">
           <Link to="/">Home</Link>
-          <Link to="/booklist">Details</Link>
-          
-          <a href="#news">News</a>
+          {/* Details -> Book List */}
+          <Link to="/booklist">도서목록</Link>
+          {/* News */}
+          <a href="#news">뉴스</a>
 
-          {/* Contact → 독립 페이지 이동 */}
-          <Link to="/contact">Contact</Link>
-
-          <Link to="/about">About</Link>
+          {/* Contact */}
+          <Link to="/contact">문의</Link>
+          {/* About */}
+          <Link to="/about">회사소개</Link>
         </nav>
 
       </div>

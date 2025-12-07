@@ -31,7 +31,6 @@ const booksData = [
     Sheikh Mujibur Rahman (저자 관련 사진) / 509
     색인 / 527`,
     buyLink: "https://www.yes24.com/product/goods/102959218"
-    
   },
   {
     id: 2,
