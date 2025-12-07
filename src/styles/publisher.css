@@ -244,6 +244,10 @@ img {
     height: 32px;
   }
 }
+/* 스크롤 시 헤더 메뉴 글자 축소 */
+.header-small .header-nav a {
+  font-size: 13px;
+}
 
 /* Announcement Bar 때문에 가림 방지 → 헤더 아래 여백 확보 */
 body {
@@ -649,7 +653,7 @@ body {
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 80%; /* 여기서 줄 길이 조절 */
+  width: 95%; /* 여기서 줄 길이 조절 */
   height: 1px;
   background: #eee;
 }

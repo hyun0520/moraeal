@@ -11,7 +11,6 @@ import ScrollToTop from "./components/sections/ScrollToTop";
 function App() {
   return (
     <>
-      {/* ✅ Router는 main.jsx에 있으므로 여기서는 쓰면 안됨 */}
       <ScrollToTop />
 
       <Routes>
