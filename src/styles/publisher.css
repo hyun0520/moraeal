@@ -167,7 +167,7 @@ img {
   }
 
   .fancy-announcement .publisher-announcement-inner {
-    font-size: 13px;   
+    font-size: 11px;   
     padding: 8px 14px;
   }
 }
@@ -258,7 +258,8 @@ img {
 /* moblie — 로고 축소 */
 @media (max-width: 600px) {
   .header-large .header-logo-img {
-    height: 48px;
+    height: 42px;
+    
   }
 
   .header-small .header-logo-img {
