@@ -26,8 +26,8 @@ export default function News() {
       style={{ marginTop: "80px" }}
     >
       <div className="publisher-section-header">
-        <h2>The latest news</h2>
-        <p>Instagram updates, announcements, and new posts.</p>
+        <h2>NEWS</h2>
+        <p>인스타그램 업데이트, 공지 및 새로운 게시물.</p>
       </div>
 
       <div className="news-card-grid">

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Hero() {
   return (
     <section id="home" className="publisher-section">
@@ -11,7 +13,11 @@ export default function Hero() {
               모래알 출판사는 작지만 깊이 있는 이야기, 새로운 시선과 목소리를 담은 책들을 독자 여러분께 전합니다.
               
             </p>
-            <button className="publisher-primary-btn">출판사 소개</button>
+            <Link to="/about">
+              <button className="publisher-primary-btn">
+                출판사 소개
+              </button>
+            </Link>
           </div>
 
           <div className="publisher-hero-image">

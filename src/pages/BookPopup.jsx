@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "../styles/publisher.css";
 
 export default function BookPopup({ selectedBook, setSelectedBook }) {
   const [activeTab, setActiveTab] = useState("intro");
@@ -19,30 +20,45 @@ export default function BookPopup({ selectedBook, setSelectedBook }) {
           </div>
 
           <div className="detail-info">
-            <h2 className="detail-title">| {selectedBook.title}</h2>
+            <h2 className="detail-title-row">
+              <span className="main-title">
+                {selectedBook.title}
+              </span>
+              &nbsp;
+              {selectedBook.subtitle && (
+                <span className="detail-subtitle">
+                  {selectedBook.subtitle}
+                </span>
+              )}
+            </h2>
 
             <div className="detail-table">
-              <div className="row">
-                <span className="label">저자</span>
-                <span>{selectedBook.author}</span>
-              </div>
-              <div className="row">
-                <span className="label">출간일</span>
-                <span>{selectedBook.publishDate}</span>
-              </div>
-              <div className="row">
-                <span className="label">사양</span>
-                <span>{selectedBook.spec}</span>
-              </div>
-              <div className="row">
-                <span className="label">ISBN</span>
-                <span>{selectedBook.isbn}</span>
-              </div>
-              <div className="row">
-                <span className="label">정가</span>
-                <span className="price">{selectedBook.price}</span>
-              </div>
+            <div className="row">
+              <span className="label">저자</span>
+              <span className="value">{selectedBook.author}</span>
             </div>
+
+            <div className="row">
+              <span className="label">출간일</span>
+              <span className="value">{selectedBook.publishDate}</span>
+            </div>
+
+            <div className="row">
+              <span className="label">사양</span>
+              <span className="value">{selectedBook.spec}</span>
+            </div>
+
+            <div className="row">
+              <span className="label">ISBN</span>
+              <span className="value">{selectedBook.isbn}</span>
+            </div>
+
+            <div className="row">
+              <span className="label">정가</span>
+              <span className="value price">{selectedBook.price}</span>
+            </div>
+          </div>
+
 
             <button
                 className="detail-buy"
@@ -59,7 +75,7 @@ export default function BookPopup({ selectedBook, setSelectedBook }) {
           </div>
         </div>
 
-        {/* ✅ 탭 버튼 */}
+        {/* 탭 버튼 */}
         <div className="detail-tabs">
           <button
             className={activeTab === "intro" ? "active" : ""}
@@ -87,15 +103,30 @@ export default function BookPopup({ selectedBook, setSelectedBook }) {
           )}
 
           {activeTab === "author" && (
-           <>
-                {selectedBook.authorHighlight && (
-                <p className="highlight author-highlight">
+            <div className="author-section">
+
+              {/* 1번 저자 */}
+              {selectedBook.authorHighlight && (
+                <div className="author-box">
+                  <p className="highlight author-highlight">
                     {selectedBook.authorHighlight}
-                </p>
-                )}
-                <p>{selectedBook.authorIntro}</p>
-           </>
-           )}
+                  </p>
+                  <p>{selectedBook.authorIntro}</p>
+                </div>
+              )}
+
+              {/* 2번 저자(역자) */}
+              {selectedBook.translatorHighlight && (
+                <div className="author-box">
+                  <p className="highlight author-highlight">
+                    {selectedBook.translatorHighlight}
+                  </p>
+                  <p>{selectedBook.translatorIntro}</p>
+                </div>
+              )}
+
+            </div>
+          )}
 
           {activeTab === "index" && (
             <pre style={{ whiteSpace: "pre-line" }}>

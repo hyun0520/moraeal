@@ -13,7 +13,7 @@ export default function BookList() {
   return (
     <section className="booklist-wrap">
       <div className="booklist-container">
-        <h2 className="section-title">BEST SELLER</h2>
+        <h2 className="section-title">BOOK LIST</h2>
 
         <div className="book-grid">
           {homeBooks.map((book) => (

@@ -71,20 +71,87 @@ img {
 /* ================================
    Announcement Bar — FIXED
 ================================ */
-.publisher-announcement {
+/* ================================
+   Fancy Announcement Bar
+================================ */
+.fancy-announcement {
   width: 100%;
-  background: #bd8f08;
-  border-bottom: 1px solid #dedede;
-  font-size: var(--fs-small);
-  display: flex;
-  justify-content: center;
+  background: linear-gradient(
+    90deg,
+    #8c410d,
+    #bd8f08,
+    #e3b64b
+  );
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
 }
 
-.publisher-announcement-inner {
-  max-width: 1200px;
-  width: 100%;
-  padding: 12px 16px;
-  text-align: center;
+/* 은은한 움직이는 빛 효과 */
+.fancy-announcement::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  animation: shineMove 4s infinite linear;
+}
+
+@keyframes shineMove {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.fancy-announcement .publisher-announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 12px 20px;
+  font-size: 15px;
+  position: relative;
+  z-index: 1;
+  color: #fff;
+}
+
+/* NEW 뱃지 */
+.announce-badge {
+  background: #fff;
+  color: #8c410d;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 1px;
+}
+
+/* 공지 텍스트 */
+.announce-text {
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+/* 링크 버튼 */
+.announce-link {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.6);
+  transition: 0.25s ease;
+  padding-bottom: 2px;
+}
+
+.announce-link:hover {
+  color: #2b1a00;
+  border-bottom-color: #2b1a00;
+}
+/* 공지사항 버튼 누를시 위치 보정 */
+#new {
+  scroll-margin-top: 200px;  /* ✅ 헤더 높이만큼 보정 */
 }
 
 /* ================================
@@ -268,10 +335,10 @@ body {
 }
 
 /* ================================
-   Books List Section
+   Books List Section 메인 NEWS 페이지
 ================================ */
 .books-section {
-  padding: 120px 8% 160px;
+  padding: 10px 10% 10px;
   background: #fff;
 }
 
@@ -337,7 +404,7 @@ body {
   color: #222;
 }
 
-/* ✅ 반응형 */
+/* 반응형 */
 @media (max-width: 1200px) {
   .books-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -415,6 +482,24 @@ body {
   margin-bottom: 26px;
   word-break: keep-all;
 }
+/*부제*/
+.detail-subtitle {
+  font-size: 15px;
+  color: #777;
+  margin-top: 6px;
+}
+/*메인제목*/
+.detail-title-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+
 @media (max-width: 900px) {
   .detail-content {
     font-size: 16px;
@@ -538,11 +623,11 @@ body {
 
 .detail-info {
   flex: 1;
-  padding-left: 120px; /* ✅ 오른쪽으로 더 이동 */
+  padding-left: 120px;
 }
 
 .detail-title {
-  font-size: 22px;   /* ✅ 크기 줄임 */
+  font-size: 22px; 
   font-weight: 600;
   margin-bottom: 28px;
 }
@@ -553,13 +638,13 @@ body {
   padding: 15px 0;
 }
 
-/* ✅ 실제로 보이는 짧은 밑줄 */
+/* 팝업 밑줄 */
 .detail-table .row::after {
   content: "";
   position: absolute;
   left: 0;
   bottom: 0;
-  width: 60%;            /* ✅ 여기서 줄 길이 조절 */
+  width: 80%; /* 여기서 줄 길이 조절 */
   height: 1px;
   background: #eee;
 }
@@ -628,7 +713,7 @@ body {
 }
 
 /* ================================
-   ✅ DETAIL TABS — FINAL DESIGN (예시 스타일)
+   ✅ DETAIL TABS — FINAL DESIGN
 ================================ */
 .detail-tabs {
   margin: 90px auto 0;
@@ -669,7 +754,7 @@ body {
 
 
 /* ================================
-   Detail Content
+   Detail Content 팝업 내용
 ================================ */
 .detail-content {
   margin-top: 40px;
@@ -677,28 +762,30 @@ body {
   line-height: 1.9;
 }
 
-/* ✅ 공통 하이라이트 */
+/* 공통 하이라이트 */
 .detail-content .highlight {
   font-family: "Noto Serif KR", serif;
   font-size: 17px;
   font-weight: 600;
-  color: #8c410d;   /* 빨강 대신 브라운 톤 */
+  color: #4a3a2a;
   margin-bottom: 28px;
   line-height: 1.9;
   text-align: center;
 }
 
-/* ✅ 저자 소개 전용 하이라이트 (약간 더 단정하게) */
+/* 저자 소개 전용 하이라이트 (약간 더 단정하게) */
 .detail-content .author-highlight {
   font-size: 16px;
   font-weight: 500;
   color: #4a3a2a;
   margin-bottom: 24px;
 }
-
-
-
-
+.translatorHighlight {
+  font-size: 16px;
+  font-weight: 500;
+  color: #4a3a2a;
+  margin-bottom: 24px;
+}
 
 
 /* ================================
@@ -754,7 +841,7 @@ body {
 }
 
 .news-section {
-  margin-bottom: 120px; /* footer와 떨어뜨림 */
+  margin-bottom: 120px;
 }
 
 /* ============================================
@@ -764,7 +851,7 @@ body {
 /* Contact Page Layout Wrapper */
 .contact-wrapper {
   max-width: 900px;
-  margin: 140px auto 140px auto; /* Header/Footer 간격 */
+  margin: 140px auto 140px auto;
   padding: 0 20px;
 }
 
@@ -824,7 +911,7 @@ body {
   border-radius: 18px;
   box-shadow: 0 12px 40px rgba(0,0,0,0.1);
   margin-top: 40px;
-  margin-bottom: 120px; /* Footer와 충분한 간격 확보 */
+  margin-bottom: 120px; /* Footer와 간격 */
 }
 
 .map-card iframe {
@@ -835,24 +922,126 @@ body {
 }
 
 
-/* ================================
-   Footer
-================================ */
-.publisher-footer {
-  background: var(--bg-footer);
-  color: white;
-  padding: 50px 0 30px 0;
+/* ============================
+   BLACK FOOTER
+============================ */
+.custom-footer {
+  width: 100%;
+  background: #1d1d1d;
+  padding: 20px 0 10px;
+  color: #fff;
 }
 
-.publisher-footer-links a {
-  color: #d9d9d9;
+.custom-footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+/* ✅ 왼쪽 텍스트 */
+.custom-footer-text {
+  max-width: 700px;
+}
+
+.footer-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.footer-caption {
+  font-size: 15px;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+  margin-bottom: 20px;
+}
+
+.footer-links a {
+  color: #ccc;
   text-decoration: none;
+  font-size: 14px;
   transition: 0.2s;
 }
 
-.publisher-footer-links a:hover {
-  color: white;
+.footer-links a:hover {
+  color: #fff;
 }
+
+.footer-copy {
+  font-size: 13px;
+  color: #888;
+}
+
+/* ✅ SNS 아이콘 */
+
+.custom-footer-sns {
+  display: flex;
+  gap: 18px;
+}
+
+.custom-footer-sns a {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 0 white;
+}
+
+/* 개별 브랜드 컬러 */
+.custom-footer-sns a.facebook {
+  background: linear-gradient(135deg, #1877f2, #4c9cff);
+}
+
+.custom-footer-sns a.instagram {
+  background: radial-gradient(circle at 30% 110%, #fdf497 0%, #fd5949 25%, #d6249f 50%, #285AEB 75%);
+}
+
+/* SNS 아이콘 SVG 로고 무조건 흰색으로 강제 */
+.custom-footer-sns a svg {
+  width: 28px;
+  height: 28px;
+  fill: #fff !important;
+}
+
+.custom-footer-sns a svg path {
+  fill: #fff !important;
+  stroke: none !important;
+}
+
+/* ✅ Hover 효과 (빛 + 확대) */
+.custom-footer-sns a:hover {
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.35);
+}
+
+
+
+/* ✅ 모바일 */
+@media (max-width: 768px) {
+  .custom-footer-inner {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .custom-footer-sns {
+    justify-content: flex-start;
+  }
+}
+
 
 /* ================================
    Responsive
@@ -1102,8 +1291,6 @@ body {
   }
 }
 
-
-
 /* ✅ BookList 전체 레이아웃 */
 .booklist-wrap {
   padding: 80px 0;
@@ -1204,4 +1391,3 @@ body {
     grid-template-columns: 1fr;
   }
 }
-

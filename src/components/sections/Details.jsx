@@ -5,14 +5,14 @@ import BookPopup from "../../pages/BookPopup";
 export default function Details() {
   const [selectedBook, setSelectedBook] = useState(null);
 
-  // ✅ Home에서는 "등록 역순 + 5권만"
+  // 책 5권 데이터
   const homeBooks = [...booksData]
-    .reverse()   // 등록된 순서 역순 (최신이 앞)
+    .reverse()   // 등록된 순서 역순
     .slice(0, 5); // 5권만 표시
 
   return (
     <>
-      <section className="books-section">
+      <section id="new" className="books-section">
         <h2 className="new-title">NEW</h2>
 
         <div className="books-grid">
@@ -35,7 +35,7 @@ export default function Details() {
         </div>
       </section>
 
-      {/* ✅ 기존 팝업 그대로 유지 */}
+      {/* Pop Up */}
       <BookPopup
         selectedBook={selectedBook}
         setSelectedBook={setSelectedBook}
