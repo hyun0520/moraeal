@@ -517,9 +517,10 @@ body {
 
   /* ✅ 팝업 전체 크기 */
   .popup-page {
-    width: 94%;
+    width: 100%;
     padding: 28px 18px 40px;
     max-height: 90vh;
+    
   }
 
   /* ✅ 상단 레이아웃 세로 정렬 */
@@ -528,16 +529,20 @@ body {
     gap: 26px;
     align-items: center;
   }
+  
 
-  /* ✅ 책 이미지 */
+  /* ✅ 이미지도 팝업 폭에 맞춰 확대 */
   .detail-image img {
-    width: 220px;
+    width: 100% !important;
+    max-width: 320px;
+    margin: 0 auto;
   }
+  
 
   /* ✅ 상세 정보 */
   .detail-info {
-    width: 100%;
-    text-align: center;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
   }
 
   .detail-title {
