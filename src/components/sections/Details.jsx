@@ -27,7 +27,7 @@ export default function Details() {
               </div>
 
               <div className="book-info">
-                <h3>{book.title}</h3>
+                <h4 className="book-title">{book.title}</h4>
                 <p>{book.author}</p>
               </div>
             </div>

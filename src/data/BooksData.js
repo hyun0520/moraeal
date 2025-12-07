@@ -395,7 +395,7 @@ const booksData = [
   },
   {
     id: 8,
-    title: "남아프리카공화국 웨스턴케이프주 헌법",
+    title: "남아프리카공화국\n 웨스턴케이프주 헌법",
     author: "편집부",
     publishDate: "2025년 07월 01일",
     spec: "134쪽 | 153*224*20mm",
@@ -509,7 +509,7 @@ const booksData = [
   },
   {
     id: 10,
-    title: "미크로네시아 연방 폰페이주 헌법",
+    title: `미크로네시아 연방 폰페이주 헌법`,
     author: "편집부",
     publishDate: "2025년 09월 01일",
     spec: "110쪽 | 148*210mm",
