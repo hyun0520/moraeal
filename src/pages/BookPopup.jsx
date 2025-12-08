@@ -93,7 +93,7 @@ export default function BookPopup({ selectedBook, setSelectedBook }) {
           >목차</button>
         </div>
 
-        {/* ✅ 탭 내용 */}
+        {/* 탭 내용 */}
         <div className="detail-content">
           {activeTab === "intro" && (
             <>
